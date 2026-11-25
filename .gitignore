@@ -1,0 +1,103 @@
+
+# ==========================================
+# Dependencies
+# ==========================================
+node_modules/
+.pnp
+.pnp.js
+
+# ==========================================
+# Production & Build Outputs
+# ==========================================
+dist/
+dist-ssr/
+build/
+out/
+*.tsbuildinfo
+
+# ==========================================
+# Environment Variables & Secrets
+# Never commit API keys, credentials or secrets
+# ==========================================
+.env
+.env.*
+!.env.example
+!.env.template
+
+# Local environment overrides
+*.local
+
+# ==========================================
+# Logs & Debugging
+# ==========================================
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# ==========================================
+# Vite, Oxlint & Tooling Cache
+# ==========================================
+.vite/
+.cache/
+.oxlint-cache/
+.eslintcache
+.parcel-cache/
+
+# ==========================================
+# Testing & Coverage
+# ==========================================
+coverage/
+*.lcov
+.nyc_output/
+
+# ==========================================
+# IDEs & Code Editors
+# ==========================================
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.sw?
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# ==========================================
+# OS-Generated Files
+# ==========================================
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+[Dd]esktop.ini
+
+# ==========================================
+# Temporary & Backup Files
+# ==========================================
+*.tmp
+*.temp
+*.bak
+*~
+
+# ==========================================
+# Deployment & Hosting
+# ==========================================
+.vercel/
+.netlify/
+.firebase/
+
+# ==========================================
+# Miscellaneous
+# ==========================================
+*.orig
+*.rej

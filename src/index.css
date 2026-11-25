@@ -1,0 +1,145 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+  
+  body {
+    background-color: #070709;
+    color: #f4f4f5;
+    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+}
+
+/* Custom Neon Glow Utilities */
+.neon-glow-green {
+  box-shadow: 0 0 15px -2px rgba(34, 197, 94, 0.4), inset 0 0 10px -2px rgba(34, 197, 94, 0.2);
+}
+
+.neon-glow-purple {
+  box-shadow: 0 0 15px -2px rgba(168, 85, 247, 0.4), inset 0 0 10px -2px rgba(168, 85, 247, 0.2);
+}
+
+.neon-glow-cyan {
+  box-shadow: 0 0 15px -2px rgba(6, 182, 212, 0.4), inset 0 0 10px -2px rgba(6, 182, 212, 0.2);
+}
+
+.neon-glow-amber {
+  box-shadow: 0 0 15px -2px rgba(245, 158, 11, 0.4), inset 0 0 10px -2px rgba(245, 158, 11, 0.2);
+}
+
+.neon-card-glow {
+  box-shadow: 0 0 30px -5px rgba(168, 85, 247, 0.18), 0 0 18px -3px rgba(34, 197, 94, 0.12);
+}
+
+/* Smooth Flash for repeated moves */
+@keyframes moveFlash {
+  0% { transform: scale(0.96); filter: brightness(1.3) drop-shadow(0 0 12px rgba(34,197,94,0.6)); }
+  50% { transform: scale(1.03); filter: brightness(1.15) drop-shadow(0 0 10px rgba(168,85,247,0.5)); }
+  100% { transform: scale(1); filter: brightness(1); }
+}
+
+.animate-move-flash {
+  animation: moveFlash 0.4s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+/* ========================================================
+   SMOOTH CLASH ANIMATIONS: STONE, PAPER, SCISSOR
+   Natural fluid timing curves with zero harsh jumps
+   ======================================================== */
+
+/* 1. Stone Smashes Scissor */
+@keyframes stoneSlamSmooth {
+  0% { transform: translateX(0) scale(1) rotate(0deg); }
+  25% { transform: translateX(-10px) scale(0.95) rotate(-4deg); }
+  45% { transform: translateX(36px) scale(1.15) rotate(8deg); filter: drop-shadow(0 0 18px #22c55e); }
+  70% { transform: translateX(20px) scale(1.08) rotate(3deg); }
+  100% { transform: translateX(0) scale(1) rotate(0deg); }
+}
+
+@keyframes scissorShatterSmooth {
+  0% { transform: translateX(0) scale(1) rotate(0deg); opacity: 1; }
+  35% { transform: translateX(10px) scale(0.96) rotate(-8deg); }
+  50% { transform: translateX(-16px) scale(0.85) rotate(-22deg); opacity: 0.65; filter: drop-shadow(0 0 20px #ef4444); }
+  75% { transform: translateX(6px) scale(0.92) rotate(-8deg); opacity: 0.85; }
+  100% { transform: translateX(0) scale(1) rotate(0deg); opacity: 1; }
+}
+
+/* 2. Scissor Slices Paper */
+@keyframes scissorSliceSmooth {
+  0% { transform: translateX(0) scale(1) rotate(0deg); }
+  25% { transform: translateX(8px) scale(0.96) rotate(6deg); }
+  45% { transform: translateX(-36px) scale(1.18) rotate(-16deg); filter: drop-shadow(0 0 18px #38bdf8); }
+  70% { transform: translateX(-18px) scale(1.06) rotate(-6deg); }
+  100% { transform: translateX(0) scale(1) rotate(0deg); }
+}
+
+@keyframes paperTornSmooth {
+  0% { transform: translateX(0) scale(1) rotate(0deg); opacity: 1; }
+  35% { transform: translateX(-8px) scale(0.95); }
+  50% { transform: translateX(18px) scale(0.84) rotate(16deg) skewX(-10deg); opacity: 0.6; filter: drop-shadow(0 0 20px #ef4444); }
+  75% { transform: translateX(-6px) scale(0.93) rotate(6deg); opacity: 0.85; }
+  100% { transform: translateX(0) scale(1) rotate(0deg) skewX(0deg); opacity: 1; }
+}
+
+/* 3. Paper Wraps Stone */
+@keyframes paperWrapSmooth {
+  0% { transform: translateX(0) scale(1) rotate(0deg); }
+  25% { transform: translateX(8px) scale(0.96) rotate(5deg); }
+  45% { transform: translateX(-34px) scale(1.2) rotate(-10deg); filter: drop-shadow(0 0 22px #c084fc); }
+  70% { transform: translateX(-16px) scale(1.08) rotate(-4deg); }
+  100% { transform: translateX(0) scale(1) rotate(0deg); }
+}
+
+@keyframes stoneTrappedSmooth {
+  0% { transform: translateX(0) scale(1); opacity: 1; }
+  35% { transform: translateX(-8px) scale(0.95); }
+  50% { transform: translateX(12px) scale(0.8) rotate(-6deg); opacity: 0.6; filter: drop-shadow(0 0 16px #9333ea); }
+  75% { transform: translateX(-4px) scale(0.92); opacity: 0.85; }
+  100% { transform: translateX(0) scale(1); opacity: 1; }
+}
+
+/* 4. Draw Clash Bounce */
+@keyframes drawBounceSmooth {
+  0% { transform: scale(1); }
+  40% { transform: scale(1.08); filter: drop-shadow(0 0 14px #06b6d4); }
+  100% { transform: scale(1); }
+}
+
+.animate-stone-slam { animation: stoneSlamSmooth 0.65s cubic-bezier(0.25, 1, 0.5, 1) forwards; }
+.animate-scissor-shatter { animation: scissorShatterSmooth 0.65s cubic-bezier(0.25, 1, 0.5, 1) forwards; }
+.animate-scissor-slice { animation: scissorSliceSmooth 0.65s cubic-bezier(0.25, 1, 0.5, 1) forwards; }
+.animate-paper-torn { animation: paperTornSmooth 0.65s cubic-bezier(0.25, 1, 0.5, 1) forwards; }
+.animate-paper-wrap { animation: paperWrapSmooth 0.65s cubic-bezier(0.25, 1, 0.5, 1) forwards; }
+.animate-stone-trapped { animation: stoneTrappedSmooth 0.65s cubic-bezier(0.25, 1, 0.5, 1) forwards; }
+.animate-draw-bounce { animation: drawBounceSmooth 0.5s cubic-bezier(0.25, 1, 0.5, 1) forwards; }
+
+/* Smooth Popup Fade & Scale */
+@keyframes popupEntrance {
+  0% { transform: scale(0.85) translateY(20px); opacity: 0; }
+  100% { transform: scale(1) translateY(0); opacity: 1; }
+}
+.animate-popup {
+  animation: popupEntrance 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Custom slim scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(15, 15, 20, 0.5);
+}
+::-webkit-scrollbar-thumb {
+  background: #27272a;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3f3f46;
+}
